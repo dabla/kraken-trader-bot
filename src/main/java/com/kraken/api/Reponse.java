@@ -13,7 +13,7 @@ public class Reponse<RESULT> {
 	
 	@SuppressWarnings("unused")
 	private Reponse() {
-		this(null, null);
+		this(null, Result.<RESULT>emptyResult());
 	}
 	
 	@JsonIgnore

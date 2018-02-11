@@ -5,25 +5,22 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-//@JsonFormat(shape = JsonFormat.Shape.ARRAY)
-//@JsonFormat(with=JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
 @JsonFormat(shape = JsonFormat.Shape.ARRAY)
 public class OpenHighLowClose {
-	private final long time;//	1518244380
-	private final double open; //	"7310.1"
-	private final double high; //	"7322.7"
-	private final double low; //	"7303.7"
-	private final double close;	//"7307.3"
-	private final double vwap;	//"7318.7"
-	private final double volume;	//"4.07407787"
-	private final int count;//	30
+	private final long time;
+	private final double open;
+	private final double high;
+	private final double low;
+	private final double close;
+	private final double vwap;
+	private final double volume;
+	private final int count;
 	
 	@SuppressWarnings("unused")
 	private OpenHighLowClose() {
 		this(0, 0, 0, 0, 0, 0, 0, 0);
 	}
 	
-	//@JsonCreator
 	public OpenHighLowClose(@JsonProperty(index = 0) long time,
 							@JsonProperty(index = 1) double open,
 							@JsonProperty(index = 2) double high,

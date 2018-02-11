@@ -1,6 +1,7 @@
 package com.kraken.api;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
+import static java.util.Collections.emptyMap;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +15,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(NON_NULL)
 public class Result<RESULT> {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static final Result EMPTY_RESULT = new Result(emptyMap(), null);
 	private final Map<String, RESULT> map;
 	private final Integer last;
 
@@ -25,6 +28,11 @@ public class Result<RESULT> {
 	public Result(Map<String, RESULT> map, Integer last) {
 		this.map = map;
 		this.last = last;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static <RESULT> Result<RESULT> emptyResult() {
+		return (Result<RESULT>)EMPTY_RESULT;
 	}
 
 	@JsonAnyGetter
